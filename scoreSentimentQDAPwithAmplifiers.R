@@ -30,11 +30,13 @@ score_polarity <- function(id_vector
   print("Input text cleaned.")
   
   #create sentiment frame with ngrams
-  key <- sentiment_frame(as.character(polarity_dict$x), "", polarity_dict$y)
+  # key <- sentiment_frame(as.character(polarity_dict$x), "", polarity_dict$y)
   
   #run polarity function
   p<- polarity(v, grouping.var = NULL,
-               polarity.frame = key, constrain = FALSE,
+               # polarity.frame = key,
+               polarity.frame = qdapDictionaries::key.pol,
+               constrain = FALSE,
                negators = qdapDictionaries::negation.words,
                amplifiers = qdapDictionaries::amplification.words,
                deamplifiers = qdapDictionaries::deamplification.words,
